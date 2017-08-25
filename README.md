@@ -1,5 +1,5 @@
 # slack typer [![Travis Ci Status](https://travis-ci.org/joshheinrichs/slack-typer.svg?branch=master)](https://travis-ci.org/joshheinrichs/slack-typer)
-Bring the party to your Slack photo!
+Bug coworkers with constant typing notifications!
 
 ## Installing 
 
@@ -13,7 +13,7 @@ $ go install github.com/joshheinrichs/slack-typer
 ## Usage
 
 ```bash
-$ slack-typer -slack-token SLACK_TOKEN [-parrot PARROT_GIF] [-h]
+$ slack-typer -slack-token SLACK_TOKEN -user USER [-h]
 ```
 
 Slack tokens can be generated at https://api.slack.com/custom-integrations/legacy-tokens
