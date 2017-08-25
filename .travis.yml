@@ -1,18 +1,15 @@
 language: go
-
 before_install:
   - go get ./...
   - go get github.com/mitchellh/gox
-
 script:
   - go fmt ./...
   - go vet ./...
   - gox -output "output/{{.Dir}}_{{.OS}}_{{.Arch}}"
-
 deploy:
   provider: releases
-  api_key: 
-    secure: "k4pVUMGV1asnP/eDozLrfcEK6Jt4twtruOOgfPT8NHWuBDLjiOrmuKZaVTZETMrgD+wOqu3oI5MxH1+g1NWBECR0tABGYKotuDa+S1Ofecce9T71d09+EglFZj1mYST3qhsTd2am8FLtsZg390FeT5lmkfLfkdmxJI4etMa5FrdeE//t1/zbr7qATNSe3k0RErjw51vYf1DvqGyOoMPBI+LhqnkUvYOQDpiuXFxIPvRq7GIPJjyZzqMc90ZbyN3VdF9BWmonHz4qPFw8w/7U2oiEC/7a7iOTWTzQ89UOAhWGf+1UN8bYl0j0wXEt1r7Oo2LVlrV/OfY3v71Ud7ngGBztmBmM/kmcn4XhomDp1VDOQ0U+qr+aAroE/QeewmlWg6WQsd/xf/sjCDou0E/n1eKjZvopmor00N1EAShyoF2qxPVptTG0i+rzoZbg2bIoVXkD3ljCJy0LmksLun+a4Pnew6F6F2NZcFm3PTgdBH855AZMSp4wlOhcno3cwgV+yJvIaqmWFKNsXk13o1xpOFuIeAGTdiTIk6wHz7IJDFQ1AU+EmapI0RKJ+gjQnd6zs7ddEDP8ubF7Zl7V7vfmxEQj5aDGVXsiHqaRTPrue+XpIf3LBEnZVwGbqFL0W399FsaYPUOsWqEvuEo1PfWh3PjTZVqbaMubW1+lfaAVWRg="
+  api_key:
+    secure: aCYf9Guq+y63L/+QdQhUVc0iXZlc/E5zf9cfsrkuYHM6/HCCs2C4fETEaYMAJ6G2GPcAMpIeOpKBsHt1h1PK183iiZ++YqNbEMeMrz+4Y/y2Vndgswt4oWXmuHrUcD8I1UEn/50YtqOzkad5O8we8PvNdsTPVLw7rWHiuZCiIQ8lPoGnRaBsn2OINqJjnCZlgqyw7MHpCeTuG2hIFBhHeKO9UI9FkNRK4JtkUCofC+bh45u21TNxmMq9npYWxC0kXnPt0x/1j/pZFYEJ/yFMhnybxBI/qitqtGLezMcPiaS6p2EBkxoR8E3i7gzq/4iMJUl/fK8b1pxK3mfYd0CpUmZOwDEBPt8BCKh4HVZngVjS0qqisHwqpoCOHywNOk4Dwy3U+tr2NHJ9c1dktrZ6DrShuXfCSNajXN0BDbdo4UJNMPeEyM1E/CDT6pEEELhK85WiC7ijzTIhH7sKi6PAzPhKRoM8slvyEUDQPl5CgR+slE863HYBrLawXH7XeUCQzk+ZHCpeRhoEzX71B6vZiKHBIcrYYDUpUbDdCug+WxSs3sffVbLAUQ9fDEfI9Pgt1QIkHClSYdsU8XLiolfWyZLrJDCKJ4f3G+0zRRI3ymgpgGfyVIjHOUQG3XicAodJLL4OA6mwz1lp85r0seAR8SSGU3au/Lq7Upne3cGNQH0=
   file_glob: true
   file: "output/*"
   skip_cleanup: true
