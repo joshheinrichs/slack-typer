@@ -1,0 +1,21 @@
+language: go
+
+before_install:
+  - go get ./...
+  - go get github.com/mitchellh/gox
+
+script:
+  - go fmt ./...
+  - go vet ./...
+  - gox -output "output/{{.Dir}}_{{.OS}}_{{.Arch}}"
+
+deploy:
+  provider: releases
+  api_key: 
+    secure: "k4pVUMGV1asnP/eDozLrfcEK6Jt4twtruOOgfPT8NHWuBDLjiOrmuKZaVTZETMrgD+wOqu3oI5MxH1+g1NWBECR0tABGYKotuDa+S1Ofecce9T71d09+EglFZj1mYST3qhsTd2am8FLtsZg390FeT5lmkfLfkdmxJI4etMa5FrdeE//t1/zbr7qATNSe3k0RErjw51vYf1DvqGyOoMPBI+LhqnkUvYOQDpiuXFxIPvRq7GIPJjyZzqMc90ZbyN3VdF9BWmonHz4qPFw8w/7U2oiEC/7a7iOTWTzQ89UOAhWGf+1UN8bYl0j0wXEt1r7Oo2LVlrV/OfY3v71Ud7ngGBztmBmM/kmcn4XhomDp1VDOQ0U+qr+aAroE/QeewmlWg6WQsd/xf/sjCDou0E/n1eKjZvopmor00N1EAShyoF2qxPVptTG0i+rzoZbg2bIoVXkD3ljCJy0LmksLun+a4Pnew6F6F2NZcFm3PTgdBH855AZMSp4wlOhcno3cwgV+yJvIaqmWFKNsXk13o1xpOFuIeAGTdiTIk6wHz7IJDFQ1AU+EmapI0RKJ+gjQnd6zs7ddEDP8ubF7Zl7V7vfmxEQj5aDGVXsiHqaRTPrue+XpIf3LBEnZVwGbqFL0W399FsaYPUOsWqEvuEo1PfWh3PjTZVqbaMubW1+lfaAVWRg="
+  file_glob: true
+  file: "output/*"
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
