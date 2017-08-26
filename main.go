@@ -51,6 +51,7 @@ func main() {
 	}
 
 	rtm := api.NewRTM()
+	go rtm.ManageConnection()
 	for {
 		rtm.SendMessage(rtm.NewTypingMessage(channelID))
 		time.Sleep(time.Second)
