@@ -1,9 +1,9 @@
-# slack typer [![Travis Ci Status](https://travis-ci.org/joshheinrichs/slack-typer.svg?branch=master)](https://travis-ci.org/joshheinrichs/slack-typer)
-Bug coworkers with constant typing notifications!
+# slack-typer [![Travis Ci Status](https://travis-ci.org/joshheinrichs/slack-typer.svg?branch=master)](https://travis-ci.org/joshheinrichs/slack-typer)
+Bug your coworkers with constant typing notifications.
 
 ## Installing 
 
-Either grab a build on the [releases page](github.com/joshheinrichs/slack-typer/releases) or run:
+Either grab a build on the [releases page](https://github.com/joshheinrichs/slack-typer/releases) or run:
 
 ```bash
 $ go get -u github.com/joshheinrichs/slack-typer
