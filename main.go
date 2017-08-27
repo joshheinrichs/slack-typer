@@ -1,13 +1,24 @@
 package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
 	"os"
 	"time"
 
+	"github.com/mattn/go-isatty"
 	"github.com/nlopes/slack"
 )
+
+var TextFrames = [...]string{
+	"typing",
+	"typing .",
+	"typing ..",
+	"typing ...",
+	"typing  ..",
+	"typing   .",
+}
 
 func main() {
 	var slackToken, user string
@@ -52,8 +63,16 @@ func main() {
 
 	rtm := api.NewRTM()
 	go rtm.ManageConnection()
+	f := bufio.NewWriter(os.Stdout)
+	i := 0
 	for {
 		rtm.SendMessage(rtm.NewTypingMessage(channelID))
 		time.Sleep(time.Second)
+		if isatty.IsTerminal(os.Stdout.Fd()) {
+			f.WriteString(TextFrames[i] + "\r")
+			f.Flush()
+			f.WriteString("\033[K")
+			i = (i + 1) % len(TextFrames)
+		}
 	}
 }
